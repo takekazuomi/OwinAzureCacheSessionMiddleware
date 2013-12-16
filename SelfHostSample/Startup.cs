@@ -17,7 +17,7 @@ namespace SelfHostSample
 
             app.Run(async context =>
             {
-                context.TraceOutput.WriteLine("start app.Run");
+                context.TraceOutput.WriteLine("start app.Run {0}", context.Request.Path);
 
                 context.Response.ContentType = "text/html";
                 try
@@ -30,7 +30,7 @@ namespace SelfHostSample
 
                     //                    await context.TraceOutput.WriteLineAsync(context.DumpEnvironment(System.Environment.NewLine));
 
-                    var msg = string.Format("Hello, World! {0} {1}/{2}<br>", time.ToString(), sessionCount, count);
+                    var msg = string.Format("Hello, World! {0} {1}/{2} {3}<br>", time.ToString(), sessionCount, count, context.Request.Path);
                     await context.Response.WriteAsync(msg);
 
                     //await context.Response.WriteAsync(context.DumpEnvironment("<br/>"));
