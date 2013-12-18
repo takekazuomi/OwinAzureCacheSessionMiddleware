@@ -1,8 +1,6 @@
 ﻿using System;
 using Microsoft.Owin.Hosting;
 
-
-
 namespace SelfHostSample
 {
     class Program
